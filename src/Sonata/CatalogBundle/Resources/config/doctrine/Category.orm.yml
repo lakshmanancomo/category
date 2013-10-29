@@ -1,0 +1,23 @@
+Sonata\CatalogBundle\Entity\Category:
+    type: entity
+    table: null
+    repositoryClass: Sonata\CatalogBundle\Entity\CategoryRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+            column: Name
+        slug:
+            type: string
+            length: 255
+            column: Slug
+    manyToMany:
+        product:
+          targetEntity: Product
+          mappedBy: category
+    lifecycleCallbacks: {  }

@@ -1,0 +1,49 @@
+Sonata\CatalogBundle\Entity\Product:
+    type: entity
+    table: null
+    repositoryClass: Sonata\CatalogBundle\Entity\ProductRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+            column: Name
+        description:
+            type: string
+            length: 255
+            column: Description
+        summary:
+            type: string
+            length: 255
+            column: Summary
+        isActivr:
+            type: boolean
+            column: IsActivr
+        Slug:
+            type: string
+            length: 255
+            column: Slug
+    manyToOne:                
+         brand:
+            targetEntity: Brand
+            joinColumn:
+                name: brand_id
+                referencedColumnName: id
+    manyToMany:
+        category:
+          targetEntity: Category
+          inversedBy: product
+          joinTable:
+            name: lakshman_catalog_category
+            joinColumns:
+              product_id:
+                referencedColumnName: id
+            inverseJoinColumns:
+              category_id:
+                referencedColumnName: id                
+
+    lifecycleCallbacks: {  }

@@ -1,0 +1,24 @@
+Sonata\CatalogBundle\Entity\Brand:
+    type: entity
+    table: null
+    repositoryClass: Sonata\CatalogBundle\Entity\BrandRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+            column: Name
+        country:
+            type: string
+            length: 255
+            column: Country
+    oneToMany:
+        product:
+          targetEntity: Product
+          mappedBy: Brand
+          cascade: [persist, remove]
+    lifecycleCallbacks: {  }

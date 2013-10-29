@@ -1,0 +1,24 @@
+parameters:
+#    sonata_catalog.example.class: Sonata\CatalogBundle\Example
+
+services:
+#    sonata_catalog.example:
+#        class: %sonata_catalog.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    sonata_catalog.admin.product:
+        class: Sonata\CatalogBundle\Admin\ProductAdmin
+        arguments: [~, Sonata\CatalogBundle\Entity\Product, SonataCatalogBundle:ProductAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Product, label: Product}
+
+    sonata_catalog.admin.category:
+        class: Sonata\CatalogBundle\Admin\CategoryAdmin
+        arguments: [~, Sonata\CatalogBundle\Entity\Category, SonataCatalogBundle:CategoryAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Category, label: Category}
+
+    sonata_catalog.admin.brand:
+        class: Sonata\CatalogBundle\Admin\BrandAdmin
+        arguments: [~, Sonata\CatalogBundle\Entity\Brand, SonataCatalogBundle:BrandAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Brand, label: Brand}
