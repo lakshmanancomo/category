@@ -16,7 +16,7 @@ class BrandAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            
+           
             ->add('name')
             ->add('country')
         ;
@@ -28,7 +28,7 @@ class BrandAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            
+           
             ->add('name')
             ->add('country')
             ->add('_action', 'actions', array(
@@ -47,7 +47,7 @@ class BrandAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            
+           
             ->add('name')
             ->add('country')
         ;
@@ -59,7 +59,7 @@ class BrandAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            
+           
             ->add('name')
             ->add('country')
         ;

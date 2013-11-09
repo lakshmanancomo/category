@@ -1,0 +1,44 @@
+{% extends 'SonataAdminBundle:CRUD:edit.html.twig' %}
+
+{% block form %}
+   
+{{ parent() }}
+
+<script type="text/javascript">
+
+    function clickme(id){    
+       var qid = id;
+             
+       var quantityValue =  document.getElementById (qid).value;
+       
+       var priceId = qid.replace('_quantity','_price');
+       
+       var priceValue = document.getElementById(priceId).value;
+       
+       var totalId = qid.replace('_quantity','_total');
+        
+       var totalValue = quantityValue * priceValue;
+              
+       document.getElementById(totalId).value=totalValue;
+      
+        
+    
+}
+
+
+
+</script>
+ <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+
+    $('.datepicker').datepicker({
+	flat: true,
+	date: '2008-07-31',
+	current: '2008-07-31',
+	calendars: 1,
+	starts: 1,
+        dateFormat: 'yy-mm-dd' 
+        
+});
+</script>
+{% endblock %}

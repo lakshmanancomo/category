@@ -9,16 +9,46 @@ services:
         class: Sonata\CatalogBundle\Admin\ProductAdmin
         arguments: [~, Sonata\CatalogBundle\Entity\Product, SonataCatalogBundle:ProductAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Product, label: Product}
+            - {name: sonata.admin, manager_type: orm, group: "Stock", label: "Product"}
 
     sonata_catalog.admin.category:
         class: Sonata\CatalogBundle\Admin\CategoryAdmin
         arguments: [~, Sonata\CatalogBundle\Entity\Category, SonataCatalogBundle:CategoryAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Category, label: Category}
+            - {name: sonata.admin, manager_type: orm, group: "Stock", label: "Category"}
 
     sonata_catalog.admin.brand:
         class: Sonata\CatalogBundle\Admin\BrandAdmin
         arguments: [~, Sonata\CatalogBundle\Entity\Brand, SonataCatalogBundle:BrandAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Brand, label: Brand}
+            - {name: sonata.admin, manager_type: orm, group: "Stock", label: "Brand"}
+
+#    sonata_catalog.admin.customer:
+#        class: Sonata\CatalogBundle\Admin\CustomerAdmin
+#        arguments: [~, Sonata\CatalogBundle\Entity\Customer, SonataCatalogBundle:CustomerAdmin]
+#        tags:
+#            - {name: sonata.admin, manager_type: orm, group: admin, label: Customer}
+#
+#    sonata_catalog.admin.order_details:
+#        class: Sonata\CatalogBundle\Admin\OrderDetailsAdmin
+#        arguments: [~, Sonata\CatalogBundle\Entity\OrderDetails, SonataCatalogBundle:OrderDetailsAdmin]
+#        tags:
+#            - {name: sonata.admin, manager_type: orm, group: admin, label: OrderDetails}
+
+    sonata_catalog.admin.customers:
+        class: Sonata\CatalogBundle\Admin\CustomersAdmin
+        arguments: [~, Sonata\CatalogBundle\Entity\Customers, SonataCatalogBundle:CustomersAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Customers}
+
+    sonata_catalog.admin.orders:
+        class: Sonata\CatalogBundle\Admin\OrdersAdmin
+        arguments: [~, Sonata\CatalogBundle\Entity\Orders, SonataCatalogBundle:OrdersAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Orders}
+
+    sonata_catalog.admin.order_items:
+        class: Sonata\CatalogBundle\Admin\OrderItemsAdmin
+        arguments: [~, Sonata\CatalogBundle\Entity\OrderItems, SonataCatalogBundle:OrderItemsAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: OrderItems}

@@ -1,6 +1,6 @@
 Sonata\CatalogBundle\Entity\Brand:
     type: entity
-    table: null
+    table: Brand
     repositoryClass: Sonata\CatalogBundle\Entity\BrandRepository
     fields:
         id:
@@ -11,11 +11,9 @@ Sonata\CatalogBundle\Entity\Brand:
         name:
             type: string
             length: 255
-            column: Name
         country:
             type: string
             length: 255
-            column: Country
     oneToMany:
         product:
           targetEntity: Product

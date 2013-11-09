@@ -1,0 +1,306 @@
+<?php
+
+namespace Sonata\CatalogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Customer
+ */
+class Customer
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $firstName;
+
+    /**
+     * @var string
+     */
+    private $lastName;
+
+    /**
+     * @var string
+     */
+    private $emailAddress;
+
+    /**
+     * @var integer
+     */
+    private $phone;
+
+    /**
+     * @var string
+     */
+    private $address;
+
+    /**
+     * @var string
+     */
+    private $State;
+
+    /**
+     * @var string
+     */
+    private $country;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set firstName
+     *
+     * @param string $firstName
+     * @return Customer
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+    
+        return $this;
+    }
+
+    /**
+     * Get firstName
+     *
+     * @return string 
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * Set lastName
+     *
+     * @param string $lastName
+     * @return Customer
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+    
+        return $this;
+    }
+
+    /**
+     * Get lastName
+     *
+     * @return string 
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * Set emailAddress
+     *
+     * @param string $emailAddress
+     * @return Customer
+     */
+    public function setEmailAddress($emailAddress)
+    {
+        $this->emailAddress = $emailAddress;
+    
+        return $this;
+    }
+
+    /**
+     * Get emailAddress
+     *
+     * @return string 
+     */
+    public function getEmailAddress()
+    {
+        return $this->emailAddress;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param integer $phone
+     * @return Customer
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return integer 
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set address
+     *
+     * @param string $address
+     * @return Customer
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string 
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set :State
+     *
+     * @param string $:State
+     * @return Customer
+     */
+    public function setState($State)
+    {
+        $this->State = $State;
+    
+        return $this;
+    }
+
+    /**
+     * Get :State
+     *
+     * @return string 
+     */
+    public function getState()
+    {
+        return $this->State;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     * @return Customer
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string 
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $order;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->order = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add order
+     *
+     * @param \Sonata\CatalogBundle\Entity\OrderDetails $order
+     * @return Customer
+     */
+    public function addOrder(\Sonata\CatalogBundle\Entity\OrderDetails $order)
+    {
+        $this->order[] = $order;
+    
+        return $this;
+    }
+
+    /**
+     * Remove order
+     *
+     * @param \Sonata\CatalogBundle\Entity\OrderDetails $order
+     */
+    public function removeOrder(\Sonata\CatalogBundle\Entity\OrderDetails $order)
+    {
+        $this->order->removeElement($order);
+    }
+
+    /**
+     * Get order
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $orderdetails;
+
+
+    /**
+     * Add orderdetails
+     *
+     * @param \Sonata\CatalogBundle\Entity\OrderDetails $orderdetails
+     * @return Customer
+     */
+    public function addOrderdetail(\Sonata\CatalogBundle\Entity\OrderDetails $orderdetails)
+    {
+        $this->orderdetails[] = $orderdetails;
+    
+        return $this;
+    }
+
+    /**
+     * Remove orderdetails
+     *
+     * @param \Sonata\CatalogBundle\Entity\OrderDetails $orderdetails
+     */
+    public function removeOrderdetail(\Sonata\CatalogBundle\Entity\OrderDetails $orderdetails)
+    {
+        $this->orderdetails->removeElement($orderdetails);
+    }
+
+    /**
+     * Get orderdetails
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOrderdetails()
+    {
+        return $this->orderdetails;
+    }
+}

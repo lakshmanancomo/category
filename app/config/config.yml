@@ -1,7 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    
+    - { resource: "@SonataCatalogBundle/Resources/config/services.yml" }
     
 framework:
     #esi:             ~
@@ -11,6 +11,12 @@ framework:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: ~
     form:            ~
+#        company:
+#            class: AMTestBundle:Company
+#            label: name
+#            search: contains
+#            query: "SELECT c FROM AMTestBundle:Company c WHERE c.name LIKE :term"
+#            max: 20
     csrf_protection: ~
     validation:      { enable_annotations: true }
     templating:
@@ -22,10 +28,21 @@ framework:
     fragments:       ~
     http_method_override: true
 
+genemu_form:
+   autocomplete: ~
+   date: ~
+
+    
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    form:
+        resources:
+            - MawiAjaxAutocompleteBundle::fields.html.twig
+            - ShtumiUsefulBundle::fields.html.twig
+          #  - AiloveFormTypesBundle:Form:fields.html.twig
+            
 
 # Assetic Configuration
 assetic:
@@ -58,6 +75,34 @@ doctrine:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
 
+mawi_ajax_autocomplete:
+        autocomplete:
+           customers:
+               class: SonataCatalogBundle:Customers
+               label: searchLabel
+               labelClass: searchLabelClass
+               search: contains
+               query: "SELECT p FROM SonataCatalogBundle:Customers p WHERE p.firstName LIKE :term ORDER BY p.firstName"
+               max: 20                     
+shtumi_useful:
+    autocomplete_entities:
+        customers:
+            class: SonataCatalogBundle:Customers
+            property: firstName
+            search: contains
+        product:
+            class: SonataCatalogBundle:Product
+            property: name
+            search: contains
+    onchange_entities:
+        product:
+            class: SonataCatalogBundle:Product
+            property: name
+            displayproperty: price
+            search: begins_with
+sc_datetimepicker:
+  configs: ~
+  
 # Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%
@@ -73,7 +118,44 @@ sonata_block:
             contexts:   [admin]
         sonata.block.service.text:
         sonata.block.service.rss:
+        sonata.block.service.action:
+          
 sonata_admin:
     title:      LakshmanAdmin
-    title_logo: bundles/acmedemo/images/logo.gif  
-    
+    title_logo: /bundles/acmedemo/images/logo.gif  
+    templates:
+        # default global templates
+        # the layout template include javascript/stylesheet to the formatter bundle,
+        # if you don't need it use the default one: SonataAdminBundle::standard_layout.html.twig
+        layout:  SonataAdminBundle::standard_layout.html.twig
+        ajax:    SonataAdminBundle::ajax_layout.html.twig
+
+        # default value if done set, actions templates, should extends a global templates
+       # list:    SonataAdminBundle:CRUD:list.html.twig
+        show:    SonataAdminBundle:CRUD:show.html.twig
+        edit:    SonataCatalogBundle::edit.html.twig
+#        user_block: ApplicationSonataUserBundle::Admin/Core/user_block.html.twig
+        dashboard: SonataAdminBundle:Core:dashboard.html.twig
+
+    dashboard:
+        blocks:
+            - { position: left, type: sonata.admin.block.admin_list }
+#            - { position: right, type: sonata.admin_doctrine_orm.block.audit}
+            - { position: right, type: sonata.block.service.text, settings: { content: "<h2>Analytics Snapshot</h2> <p>Pending Google Analytics integration</p>"} }
+            - { position: right, type: sonata.block.service.rss, settings: { title: Sonata Project's Feeds, url: http://sonata-project.org/blog/archive.rss }}
+         
+        groups:
+          sonata_catalog.group.stock:
+                label: Stock
+                items:
+                    - sonata_catalog.admin.product
+                    - sonata_catalog.admin.category
+                    - sonata_catalog.admin.brand
+          sonata_catalog.group.order:
+                label: Customer
+                items:
+                     - sonata_catalog.admin.customers
+                     - sonata_catalog.admin.order_items
+                     - sonata_catalog.admin.orders
+
+                    

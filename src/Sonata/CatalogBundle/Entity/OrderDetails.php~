@@ -1,0 +1,250 @@
+<?php
+
+namespace Sonata\CatalogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * OrderDetails
+ */
+class OrderDetails
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $orderId;
+
+    /**
+     * @var string
+     */
+    private $productName;
+
+    /**
+     * @var integer
+     */
+    private $quantity;
+
+    /**
+     * @var float
+     */
+    private $price;
+
+    /**
+     * @var float
+     */
+    private $total;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set orderId
+     *
+     * @param integer $orderId
+     * @return OrderDetails
+     */
+    public function setOrderId($orderId)
+    {
+        $this->orderId = $orderId;
+    
+        return $this;
+    }
+
+    /**
+     * Get orderId
+     *
+     * @return integer 
+     */
+    public function getOrderId()
+    {
+        return $this->orderId;
+    }
+
+    /**
+     * Set productName
+     *
+     * @param string $productName
+     * @return OrderDetails
+     */
+    public function setProductName($productName)
+    {
+        $this->productName = $productName;
+    
+        return $this;
+    }
+
+    /**
+     * Get productName
+     *
+     * @return string 
+     */
+    public function getProductName()
+    {
+        return $this->productName;
+    }
+
+    /**
+     * Set quantity
+     *
+     * @param integer $quantity
+     * @return OrderDetails
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    
+        return $this;
+    }
+
+    /**
+     * Get quantity
+     *
+     * @return integer 
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * Set price
+     *
+     * @param float $price
+     * @return OrderDetails
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float 
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set total
+     *
+     * @param float $total
+     * @return OrderDetails
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+    
+        return $this;
+    }
+
+    /**
+     * Get total
+     *
+     * @return float 
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $customer;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->customer = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add customer
+     *
+     * @param \Sonata\CatalogBundle\Entity\Customer $customer
+     * @return OrderDetails
+     */
+    public function addCustomer(\Sonata\CatalogBundle\Entity\Customer $customer)
+    {
+        $this->customer[] = $customer;
+    
+        return $this;
+    }
+
+    /**
+     * Remove customer
+     *
+     * @param \Sonata\CatalogBundle\Entity\Customer $customer
+     */
+    public function removeCustomer(\Sonata\CatalogBundle\Entity\Customer $customer)
+    {
+        $this->customer->removeElement($customer);
+    }
+
+    /**
+     * Get customer
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $product;
+
+
+    /**
+     * Add product
+     *
+     * @param \Sonata\CatalogBundle\Entity\Product $product
+     * @return OrderDetails
+     */
+    public function addProduct(\Sonata\CatalogBundle\Entity\Product $product)
+    {
+        $this->product[] = $product;
+    
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \Sonata\CatalogBundle\Entity\Product $product
+     */
+    public function removeProduct(\Sonata\CatalogBundle\Entity\Product $product)
+    {
+        $this->product->removeElement($product);
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+}

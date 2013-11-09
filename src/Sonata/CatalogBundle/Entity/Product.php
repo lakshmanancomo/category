@@ -32,12 +32,22 @@ class Product
     /**
      * @var boolean
      */
-    private $isActivr;
+    private $isActive;
 
     /**
      * @var string
      */
-    private $Slug;
+    private $slug;
+
+    /**
+     * @var integer
+     */
+    private $quantity;
+
+    /**
+     * @var float
+     */
+    private $price;
 
 
     /**
@@ -120,51 +130,96 @@ class Product
     }
 
     /**
-     * Set isActivr
+     * Set isActive
      *
-     * @param boolean $isActivr
+     * @param boolean $isActive
      * @return Product
      */
-    public function setIsActivr($isActivr)
+    public function setIsActive($isActive)
     {
-        $this->isActivr = $isActivr;
+        $this->isActive = $isActive;
     
         return $this;
     }
 
     /**
-     * Get isActivr
+     * Get isActive
      *
      * @return boolean 
      */
-    public function getIsActivr()
+    public function getIsActive()
     {
-        return $this->isActivr;
+        return $this->isActive;
     }
 
     /**
-     * Set Slug
+     * Set slug
      *
-     * @param string $Slug
+     * @param string $slug
      * @return Product
      */
-    public function setSlug($Slug)
+    public function setSlug($slug)
     {
-        $this->Slug = $Slug;
+        $this->slug = $slug;
     
         return $this;
     }
 
     /**
-     * Get Slug
+     * Get slug
      *
      * @return string 
      */
     public function getSlug()
     {
-        return $this->Slug;
-    }    
+        return $this->slug;
+    }
+
+    /**
+     * Set quantity
+     *
+     * @param integer $quantity
+     * @return Product
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
     
+        return $this;
+    }
+
+    /**
+     * Get quantity
+     *
+     * @return integer 
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * Set price
+     *
+     * @param float $price
+     * @return Product
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float 
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
     /**
      * @var \Sonata\CatalogBundle\Entity\Brand
      */
@@ -238,11 +293,7 @@ class Product
     {
         return $this->category;
     }
-    
-        public function setCategory(\Sonata\CatalogBundle\Entity\Category $category)
-    {
-        $this->category[] = $category;
-    
-        return $this;
+    public function __toString() {
+        return $this->getName();
     }
 }

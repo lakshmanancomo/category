@@ -20,9 +20,12 @@ class ProductAdmin extends Admin
             ->add('name')
             ->add('description')
             ->add('summary')
-            ->add('isActivr')
-            ->add('Slug');
-   }
+            ->add('isActive')
+            ->add('slug')
+            ->add('quantity')
+            ->add('price')
+        ;
+    }
 
     /**
      * @param ListMapper $listMapper
@@ -34,14 +37,16 @@ class ProductAdmin extends Admin
             ->add('name')
             ->add('description')
             ->add('summary')
-            ->add('isActivr')
-            ->add('Slug')
-            ->add('brand','entity',array('class' =>'SonataCatalogBundle:Brand',
-                'property'=>'name','multiple'=> false,'expanded'=> true ))
+            ->add('isActive')
+            ->add('slug')
+            ->add('quantity')
+            ->add('price')
+           ->add('brand','entity',array('class' =>'SonataCatalogBundle:Brand',
+                'property'=>'name'))
           ->add('category','entity',array('label'=> 'Category',
                  'class'=>'SonataCatalogBundle:Category',
-                 'property'=>'name','multiple'=>true,'expanded'=> false  ))
-          ->add('_action', 'actions', array(
+                 'property'=>'name','multiple'=>true,'expanded'=> false  )) 
+            ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
                     'edit' => array(),
@@ -61,15 +66,16 @@ class ProductAdmin extends Admin
             ->add('name')
             ->add('description')
             ->add('summary')
-            ->add('isActivr')
-            ->add('Slug')
+            ->add('isActive')
+            ->add('slug')
+            ->add('quantity')
+            ->add('price')
             ->add('brand','entity',array('class' =>'SonataCatalogBundle:Brand',
-                'property'=>'name','multiple'=> false,'expanded'=> true ))
-            ->add('category','entity',array('label'=> 'Category',
+                'property'=>'name'))
+          ->add('category','entity',array('label'=> 'Category',
                  'class'=>'SonataCatalogBundle:Category',
-                 'property'=>'name','multiple'=>true,'expanded'=> false 
-                      
-                ));
+                 'property'=>'name','multiple'=>true,'expanded'=> false  )) 
+        ;
     }
 
     /**
@@ -82,14 +88,15 @@ class ProductAdmin extends Admin
             ->add('name')
             ->add('description')
             ->add('summary')
-            ->add('isActivr')
-            ->add('Slug')
+            ->add('isActive')
+            ->add('slug')
+            ->add('quantity')
+            ->add('price')
             ->add('brand','entity',array('class' =>'SonataCatalogBundle:Brand',
-                                'property'=>'name','multiple'=>false,'expanded'=> true ))
-            ->add('category','entity',array('label'=> 'Category',
+                'property'=>'name'))
+          ->add('category','entity',array('label'=> 'Category',
                  'class'=>'SonataCatalogBundle:Category',
-                 'property'=>'name','multiple'=>true,'expanded'=> false 
-                       
-                ));
+                 'property'=>'name','multiple'=>true,'expanded'=> false  )) 
+        ;
     }
 }

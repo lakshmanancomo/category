@@ -1,7 +1,8 @@
 sonata_catalog:
     resource: "@SonataCatalogBundle/Resources/config/routing.yml"
     prefix:   /
-
+shtumi_useful:
+    resource: '@ShtumiUsefulBundle/Resources/config/routing.xml'
 # app/config/routing.yml
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
@@ -11,3 +12,8 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
+    
+mawi_ajaxautocomplete:
+    resource: "@MawiAjaxAutocompleteBundle/Resources/config/routing.xml"    
+#fos_js_routing:
+   # resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"    

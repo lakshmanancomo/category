@@ -1,6 +1,6 @@
 Sonata\CatalogBundle\Entity\Category:
     type: entity
-    table: null
+    table: Category
     repositoryClass: Sonata\CatalogBundle\Entity\CategoryRepository
     fields:
         id:
@@ -11,11 +11,9 @@ Sonata\CatalogBundle\Entity\Category:
         name:
             type: string
             length: 255
-            column: Name
         slug:
             type: string
             length: 255
-            column: Slug
     manyToMany:
         product:
           targetEntity: Product

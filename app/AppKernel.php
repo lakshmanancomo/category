@@ -22,6 +22,13 @@ class AppKernel extends Kernel
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\CatalogBundle\SonataCatalogBundle(),
+            new Mawi\AjaxAutocompleteBundle\MawiAjaxAutocompleteBundle(),
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
+           // new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Shtumi\UsefulBundle\ShtumiUsefulBundle(),
+           // new Ailove\FormTypesBundle\AiloveFormTypesBundle()    
+             new SC\DatetimepickerBundle\SCDatetimepickerBundle(),
+            
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

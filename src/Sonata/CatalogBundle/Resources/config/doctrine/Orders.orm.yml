@@ -1,0 +1,31 @@
+Sonata\CatalogBundle\Entity\Orders:
+    type: entity
+    table: Orders
+    repositoryClass: Sonata\CatalogBundle\Entity\OrdersRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        status:
+            type: boolean
+        orderedAt:
+            type: date
+            column: ordered_at
+    manyToOne:                
+         customers:
+            targetEntity: Customers
+            inversedBy: orders
+            joinColumn:
+                name: customer_id
+                referencedColumnName: id                  
+    oneToMany:
+       orderitems:
+            targetEntity: OrderItems
+            mappedBy: orders
+            cascade: [persist, remove]
+            orphanRemoval: true
+    lifecycleCallbacks: {  }
+
+

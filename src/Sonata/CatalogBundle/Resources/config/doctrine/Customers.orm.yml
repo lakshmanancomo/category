@@ -1,0 +1,35 @@
+Sonata\CatalogBundle\Entity\Customers:
+    type: entity
+    table: Customers
+    repositoryClass: Sonata\CatalogBundle\Entity\CustomersRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        firstName:
+            type: string
+            length: 255
+            column: first_name
+        lastName:
+            type: string
+            length: 255
+            column: last_name
+        email:
+            type: string
+            length: 255
+        phone:
+            type: integer
+        state:
+            type: string
+            length: 255
+        country:
+            type: string
+            length: 255
+    oneToMany:
+        orders:
+           targetEntity: Orders
+           mappedBy: customers
+           cascade: [persist, remove]           
+    lifecycleCallbacks: {  }
